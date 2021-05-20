@@ -1,1 +1,1 @@
-# .emacs.d
+# This is my Emacs config and learning place
