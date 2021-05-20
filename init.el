@@ -39,6 +39,20 @@
   :config
   (add-hook 'org-mode-hook #'org-bullets-mode))
 
+; ido mode
+(setq indo-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
+(defalias 'list-buffers 'ibuffer)
+;; (defalias 'list-buffers 'ibuffer-other-window)
+
+; If you like a tabbar
+;(use-package tabbar
+;  :ensure t
+;  :config
+;  (tabbar-mode 1))
+
 (global-display-line-numbers-mode)
 
 (add-hook 'after-init-hook 'global-company-mode)
