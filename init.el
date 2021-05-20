@@ -102,3 +102,8 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 (setq make-backup-files nil)
+
+(use-package avy
+  :ensure t
+  :bind ("M-s" . avy-goto-line))
+
