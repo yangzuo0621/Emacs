@@ -3,7 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(which-key try use-package company)))
+ '(package-selected-packages '(ace-window which-key try use-package company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -52,6 +52,18 @@
 ;  :ensure t
 ;  :config
 ;  (tabbar-mode 1))
+
+; (winner-mode 1)
+; (windmove-default-keybindings)
+(use-package ace-window
+  :ensure t
+  :init
+  (progn
+    (global-set-key [remap other-window] 'ace-window)
+;    (custom-set-faces
+;     '(aw-leading-char-face
+;      ((t (:inherit ace-jump-face-foreground :height 3.0)))))
+    ))
 
 (global-display-line-numbers-mode)
 
