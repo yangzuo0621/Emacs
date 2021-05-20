@@ -18,6 +18,12 @@
   :ensure t
   :config (which-key-mode))
 
+;; Org-mode stuff
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook #'org-bullets-mode))
+
 (global-display-line-numbers-mode)
 
 (add-hook 'after-init-hook 'global-company-mode)
