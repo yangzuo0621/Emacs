@@ -97,10 +97,10 @@
     (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
     ))
 
-;(load-theme 'leuven t)
-;(use-package color-theme-modern
-;  :ensure t
-;  :config (load-theme 'zenburn t))
+;(load-theme 'zenburn t)
+(use-package zenburn-theme
+  :ensure t
+  :config (load-theme 'zenburn t))
 
 ;(add-hook 'after-init-hook 'global-company-mode)
 (use-package company
