@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(sounsel counsel swiper ace-window which-key try use-package company)))
+   '(org-bullets sounsel counsel swiper ace-window which-key try use-package company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -102,10 +102,13 @@
 ;  :ensure t
 ;  :config (load-theme 'zenburn t))
 
+;(add-hook 'after-init-hook 'global-company-mode)
+(use-package company
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
+
 (global-display-line-numbers-mode)
-
-(add-hook 'after-init-hook 'global-company-mode)
-
 (setq make-backup-files nil)
 
 (use-package avy
