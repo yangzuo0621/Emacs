@@ -97,6 +97,11 @@
     (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
     ))
 
+;(load-theme 'leuven t)
+;(use-package color-theme-modern
+;  :ensure t
+;  :config (load-theme 'zenburn t))
+
 (global-display-line-numbers-mode)
 
 (add-hook 'after-init-hook 'global-company-mode)
