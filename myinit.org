@@ -106,4 +106,3 @@
   :bind ("M-s" . avy-goto-line))
 
 #+END_SRC
-
