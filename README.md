@@ -1,1 +1,1 @@
-# This is my Emacs config and learning place
+## Emacs configuration
