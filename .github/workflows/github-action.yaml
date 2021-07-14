@@ -1,5 +1,11 @@
-name: GitHub Actions Demo
-on: [push]
+name: Emacs Configuration
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
