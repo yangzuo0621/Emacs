@@ -9,7 +9,6 @@
   - set up melpa
 ** Installing some package
   - installed use-package
-  - installed 
   - installed which-key
 * Lesson 2
   Show some org-mode
