@@ -100,6 +100,14 @@
   :config
   (add-hook 'after-init-hook 'global-company-mode))
 
+;(use-package auto-complete
+;  :ensure t
+;  :init
+;  (progn
+;    (ac-config-default)
+;    (global-auto-complete-mode t)
+;    ))
+
 (global-display-line-numbers-mode)
 (setq make-backup-files nil)
 
