@@ -11,6 +11,8 @@
   :config (which-key-mode))
 
 ;; Org-mode stuff
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe")
 (use-package org-bullets
   :ensure t
   :config
