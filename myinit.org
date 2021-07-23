@@ -2,7 +2,7 @@
 
 * Startup of emacs configuration
 
-We will put the essential configs in the init.el file, and put all other configs in org files.
+I will put the essential configs in the init.el file, and put all other configs in org files.
 
 ** Setting up the Package Manager
    [[https://melpa.org/#/][Melpa]] - the emacs package manager, useful functions are: package-refresh-contents, package-install.
@@ -55,24 +55,44 @@ The contents of the init.el file:
     :config (which-key-mode))
   #+END_SRC
 
+* Org mode
+  - setup browser for org mode
+  - setup [[https://github.com/integral-dw/org-bullets][org-bullets]] package
+  #+BEGIN_SRC emacs-lisp
+    ;; Org-mode stuff
+    (setq browse-url-browser-function 'browse-url-generic
+	  browse-url-generic-program "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe")
+    (use-package org-bullets
+      :ensure t
+      :config
+      (add-hook 'org-mode-hook #'org-bullets-mode))
+  #+END_SRC
+* Buffers
+  enable [[https://www.masteringemacs.org/article/introduction-to-ido-mode][ido mode]]
+  #+BEGIN_SRC emacs-lisp
+    ;; ido mode
+    (setq indo-enable-flex-matching t)
+    (setq ido-everywhere t)
+    (ido-mode 1)
+
+    (defalias 'list-buffers 'ibuffer)
+    ; (defalias 'list-buffers 'ibuffer-other-window)
+  #+END_SRC
+* Windows
+  - setup [[https://github.com/abo-abo/ace-window][acs-window]] package
+  #+BEGIN_SRC emacs-lisp
+    (use-package ace-window
+      :ensure t
+      :init
+      (progn
+	(global-set-key [remap other-window] 'ace-window)
+    ;    (custom-set-faces
+    ;     '(aw-leading-char-face
+    ;      ((t (:inherit ace-jump-face-foreground :height 3.0)))))
+	))
+  #+END_SRC
 * the rest
 #+BEGIN_SRC emacs-lisp
-
-;; Org-mode stuff
-(setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe")
-(use-package org-bullets
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook #'org-bullets-mode))
-
-; ido mode
-(setq indo-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
-
-(defalias 'list-buffers 'ibuffer)
-;; (defalias 'list-buffers 'ibuffer-other-window)
 
 ; If you like a tabbar
 ;(use-package tabbar
@@ -82,15 +102,6 @@ The contents of the init.el file:
 
 ; (winner-mode 1)
 ; (windmove-default-keybindings)
-(use-package ace-window
-  :ensure t
-  :init
-  (progn
-    (global-set-key [remap other-window] 'ace-window)
-;    (custom-set-faces
-;     '(aw-leading-char-face
-;      ((t (:inherit ace-jump-face-foreground :height 3.0)))))
-    ))
 
 (use-package counsel
   :ensure t)
