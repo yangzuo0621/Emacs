@@ -1,5 +1,33 @@
 #+STARTUP: overview
 
+* Startup of emacs configuration
+
+We will put the essential configs in the init.el file, and put all other configs in org files.
+
+** Setting up the Package Manager
+   [[https://melpa.org/#/][Melpa]] - the emacs package manager, useful functions are: package-refresh-contents, package-install.
+** Setting up use-package
+   [[https://github.com/jwiegley/use-package][use-package]] is a fancy package that can be used to install other packages.
+** Use org file to manage the emacs configs
+   We can use el files to group the emacs configs, but it would be
+   easier to manage them using org file. Just use the function org-babel-load-file.
+
+The contents of the init.el file: 
+#+BEGIN_SRC
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(org-babel-load-file (expand-file-name "~/.emacs.d/myinit.org"))
+#+END_SRC
+
 * interface tweaks
 #+BEGIN_SRC emacs-lisp
 (setq inhibit-startup-message t)
