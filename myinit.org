@@ -166,7 +166,10 @@ The contents of the init.el file:
     :init
     (global-flycheck-mode))
 #+END_SRC
+
 * Python
+  For Emacs 27, use LSP, and use elpy for Emacs 26 or lower
+** install [[https://github.com/python-lsp/python-lsp-server][Python LSP Server]]
 ** install [[https://github.com/PyCQA/pylint][pylint]], virtualenv
    #+BEGIN_SRC bash
      sudo apt install python3-pip
@@ -177,26 +180,38 @@ The contents of the init.el file:
    - install [[https://github.com/tkf/emacs-jedi][jedi]] package, for company user, install [[https://github.com/emacsorphanage/company-jedi][company-jedi]] instead.
    - M-x jedi:install-server
    - [[http://tkf.github.io/emacs-jedi/latest/][jedi settings]]
+** install [[https://github.com/jorgenschaefer/elpy][elpy]]
    
 #+BEGIN_SRC emacs-lisp
-    (setq py-python-command "python3")
-    (setq python-shell-interpreter "python3")
-    (setq flycheck-python-pylint-executable "python3")
+  (setq py-python-command "python3")
+  (setq python-shell-interpreter "python3")
+  (setq flycheck-python-pylint-executable "python3")
 
-    ;(use-package jedi
-    ;  :ensure t
-    ;  :init
-    ;  (add-hook 'python-mode-hook 'jedi:setup)
-    ;  (add-hook 'python-mode-hook 'jedi:ac-setup))
+  ;(use-package jedi
+  ;  :ensure t
+  ;  :init
+  ;  (add-hook 'python-mode-hook 'jedi:setup)
+  ;  (add-hook 'python-mode-hook 'jedi:ac-setup))
 
-    (use-package company-jedi
-      :ensure t
-      :config
-      (defun my/python-mode-hook ()
-	(add-to-list 'company-backends 'company-jedi))
-      (add-hook 'python-mode-hook 'jedi:setup)
-      (setq jedi:complete-on-dot t)
-      (add-hook 'python-mode-hook 'my/python-mode-hook))
+  ;(use-package company-jedi
+  ;  :ensure t
+  ;  :config
+  ;  (defun my/python-mode-hook ()
+  ;    (add-to-list 'company-backends 'company-jedi))
+  ;  (add-hook 'python-mode-hook 'jedi:setup)
+  ;  (setq jedi:complete-on-dot t)
+  ;  (add-hook 'python-mode-hook 'my/python-mode-hook))
+
+  ;(use-package elpy
+  ;  :ensure t
+  ;  :init
+  ;  (elpy-enable))
+
+  (use-package lsp-mode
+    :ensure t
+    :config
+    (add-hook 'python-mode-hook #'lsp)
+    (setq lsp-enable-snippet nil))
 #+END_SRC
 
 * Theme
@@ -223,3 +238,6 @@ The contents of the init.el file:
 ; (windmove-default-keybindings)
 
 #+END_SRC
+
+* Reference
+  [[https://www.john2x.com/emacs.html][John's Emacs Config]]

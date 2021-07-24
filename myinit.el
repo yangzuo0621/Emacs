@@ -93,23 +93,34 @@
   (global-flycheck-mode))
 
 (setq py-python-command "python3")
-  (setq python-shell-interpreter "python3")
-  (setq flycheck-python-pylint-executable "python3")
+(setq python-shell-interpreter "python3")
+(setq flycheck-python-pylint-executable "python3")
 
-  ;(use-package jedi
-  ;  :ensure t
-  ;  :init
-  ;  (add-hook 'python-mode-hook 'jedi:setup)
-  ;  (add-hook 'python-mode-hook 'jedi:ac-setup))
+;(use-package jedi
+;  :ensure t
+;  :init
+;  (add-hook 'python-mode-hook 'jedi:setup)
+;  (add-hook 'python-mode-hook 'jedi:ac-setup))
 
-  (use-package company-jedi
-    :ensure t
-    :config
-    (defun my/python-mode-hook ()
-      (add-to-list 'company-backends 'company-jedi))
-    (add-hook 'python-mode-hook 'jedi:setup)
-;    (add-hook 'python-mode-hook 'jedi:ac-setup)
-    (add-hook 'python-mode-hook 'my/python-mode-hook))
+;(use-package company-jedi
+;  :ensure t
+;  :config
+;  (defun my/python-mode-hook ()
+;    (add-to-list 'company-backends 'company-jedi))
+;  (add-hook 'python-mode-hook 'jedi:setup)
+;  (setq jedi:complete-on-dot t)
+;  (add-hook 'python-mode-hook 'my/python-mode-hook))
+
+;(use-package elpy
+;  :ensure t
+;  :init
+;  (elpy-enable))
+
+(use-package lsp-mode
+  :ensure t
+  :config
+  (add-hook 'python-mode-hook #'lsp)
+  (setq lsp-enable-snippet nil))
 
 ;(load-theme 'zenburn t)
 (use-package zenburn-theme
