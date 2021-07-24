@@ -226,6 +226,18 @@ The contents of the init.el file:
     (setq yas-snippet-dirs '("~/.emacs.d/yasnippet-snippets/snippets")))
 #+END_SRC
 
+* Undo Tree
+  [[https://elpa.gnu.org/packages/undo-tree.html][undo-tree]]
+  - view the undo-tree C-x u
+  - use q to select tree node
+
+#+BEGIN_SRC emacs-lisp
+  (use-package undo-tree
+    :ensure t
+    :init
+    (global-undo-tree-mode))
+#+END_SRC
+
 * Theme
   install theme and use function load-theme
   - [[https://emacsthemes.com/][Emacs Themes]]

@@ -129,6 +129,11 @@
   :config
   (setq yas-snippet-dirs '("~/.emacs.d/yasnippet-snippets/snippets")))
 
+(use-package undo-tree
+  :ensure t
+  :init
+  (global-undo-tree-mode))
+
 ;(load-theme 'zenburn t)
 (use-package zenburn-theme
   :ensure t
