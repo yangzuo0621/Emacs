@@ -251,6 +251,18 @@ The contents of the init.el file:
 
 #+END_SRC
 
+* Macros
+  [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Keyboard-Macros.html][Keyboard Macros]]
+** method one
+  F3 start macro record (press F3 again, insert macro counter)
+  F4 end macro record
+  F4 do the macro
+  
+** method tow
+  C-x + ( start macro record
+  C-x + ) end macro record
+  C-x + e do the macro
+
 * Thoughts on Emacs
 
   The big thing isn't so much how to do something but just to know
