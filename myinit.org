@@ -30,12 +30,16 @@ The contents of the init.el file:
 
 * interface tweaks
 #+BEGIN_SRC emacs-lisp
-(setq inhibit-startup-message t)
-(setq make-backup-files nil)
-(global-display-line-numbers-mode)
-(tool-bar-mode -1)
-(fset 'yes-or-no-p 'y-or-n-p)
-(global-set-key (kbd "<f5>") 'revert-buffer)
+  (setq inhibit-startup-message t)
+  (setq make-backup-files nil)
+  (global-display-line-numbers-mode)
+  (tool-bar-mode -1)
+  (fset 'yes-or-no-p 'y-or-n-p)
+  (global-set-key (kbd "<f5>") 'revert-buffer)
+
+  (setq save-interprogram-paste-before-kill t)
+  (global-auto-revert-mode 1) ;; you might not want this
+  (setq auto-revert-verbose nil) ;; or this
 #+END_SRC
 
 * Useful packages
@@ -97,9 +101,13 @@ The contents of the init.el file:
   - Ivy, a generic completion mechanism for Emacs.
   - Counsel, a collection of Ivy-enhanced versions of common Emacs commands.
   - [[https://github.com/abo-abo/swiper][Swiper]], an Ivy-enhanced alternative to Isearch.
+  - [[http://pragmaticemacs.com/emacs/counsel-yank-pop-with-a-tweak/][COUNSEL-YANK-POP WITH A TWEAK]]
 #+BEGIN_SRC emacs-lisp
   (use-package counsel
-    :ensure t)
+    :bind
+    (("M-y" . counsel-yank-pop)
+     :map ivy-minibuffer-map
+     ("M-y" . ivy-next-line)))
 
   (use-package swiper
     :ensure t
@@ -129,7 +137,7 @@ The contents of the init.el file:
       (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
       ))
 #+END_SRC
-
+* Yanking
 * Navigation
   setup [[https://github.com/abo-abo/avy][avy]] for jumping to visible text using a char-based decision
   tree.
@@ -375,6 +383,9 @@ The contents of the init.el file:
   ;; This line actually replaces Emacs' entire narrowing keymap, that's
   ;; how much I like this command. Only copy it if that's what you want.
   (define-key ctl-x-map "n" #'narrow-or-widen-dwim)
+
+  (use-package multiple-cursors
+    :ensure t)
 #+END_SRC
 * Conditional Loading of Emacs Config
   [[https://irreal.org/blog/?p=5716][Conditional Loading of Emacs Config]]
@@ -399,3 +410,4 @@ and then later on can look and figure out how to do it.
   [[https://www.john2x.com/emacs.html][John's Emacs Config]]
   [[https://lorefnon.tech/2018/07/14/getting-productive-with-selection-and-navigation-in-emacs/][Getting productive with selection and navigation in Emacs]]
   [[http://irreal.org/blog/][Irreal]]
+  [[http://pragmaticemacs.com/][Progmatic Emacs]]

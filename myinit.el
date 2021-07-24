@@ -5,6 +5,10 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-set-key (kbd "<f5>") 'revert-buffer)
 
+(setq save-interprogram-paste-before-kill t)
+(global-auto-revert-mode 1) ;; you might not want this
+(setq auto-revert-verbose nil) ;; or this
+
 (use-package try
   :ensure t)
 
@@ -39,7 +43,10 @@
     ))
 
 (use-package counsel
-  :ensure t)
+  :bind
+  (("M-y" . counsel-yank-pop)
+   :map ivy-minibuffer-map
+   ("M-y" . ivy-next-line)))
 
 (use-package swiper
   :ensure t
@@ -206,6 +213,9 @@ narrowed."
 ;; This line actually replaces Emacs' entire narrowing keymap, that's
 ;; how much I like this command. Only copy it if that's what you want.
 (define-key ctl-x-map "n" #'narrow-or-widen-dwim)
+
+(use-package multiple-cursors
+  :ensure t)
 
 (defun load-if-exists (f)
   "load the elisp file only if it exists and is readable"
