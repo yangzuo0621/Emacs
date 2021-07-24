@@ -1,4 +1,6 @@
 (setq inhibit-startup-message t)
+(setq make-backup-files nil)
+(global-display-line-numbers-mode)
 (tool-bar-mode -1)
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-set-key (kbd "<f5>") 'revert-buffer)
@@ -18,22 +20,14 @@
   :config
   (add-hook 'org-mode-hook #'org-bullets-mode))
 
-; ido mode
+;; ido mode
 (setq indo-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
 
 (defalias 'list-buffers 'ibuffer)
-;; (defalias 'list-buffers 'ibuffer-other-window)
+; (defalias 'list-buffers 'ibuffer-other-window)
 
-; If you like a tabbar
-;(use-package tabbar
-;  :ensure t
-;  :config
-;  (tabbar-mode 1))
-
-; (winner-mode 1)
-; (windmove-default-keybindings)
 (use-package ace-window
   :ensure t
   :init
@@ -46,8 +40,9 @@
 
 (use-package counsel
   :ensure t)
+
 (use-package swiper
-  :ensure try
+  :ensure t
   :config
   (progn
     (ivy-mode)
@@ -74,10 +69,9 @@
     (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
     ))
 
-;(load-theme 'zenburn t)
-(use-package zenburn-theme
+(use-package avy
   :ensure t
-  :config (load-theme 'zenburn t))
+  :bind ("M-s" . avy-goto-line))
 
 ;(add-hook 'after-init-hook 'global-company-mode)
 (use-package company
@@ -85,9 +79,48 @@
   :config
   (add-hook 'after-init-hook 'global-company-mode))
 
-(global-display-line-numbers-mode)
-(setq make-backup-files nil)
+;(use-package auto-complete
+;  :ensure t
+;  :init
+;  (progn
+;    (ac-config-default)
+;    (global-auto-complete-mode t)
+;    ))
 
-(use-package avy
+(use-package flycheck
   :ensure t
-  :bind ("M-s" . avy-goto-line))
+  :init
+  (global-flycheck-mode))
+
+(setq py-python-command "python3")
+  (setq python-shell-interpreter "python3")
+  (setq flycheck-python-pylint-executable "python3")
+
+  ;(use-package jedi
+  ;  :ensure t
+  ;  :init
+  ;  (add-hook 'python-mode-hook 'jedi:setup)
+  ;  (add-hook 'python-mode-hook 'jedi:ac-setup))
+
+  (use-package company-jedi
+    :ensure t
+    :config
+    (defun my/python-mode-hook ()
+      (add-to-list 'company-backends 'company-jedi))
+    (add-hook 'python-mode-hook 'jedi:setup)
+;    (add-hook 'python-mode-hook 'jedi:ac-setup)
+    (add-hook 'python-mode-hook 'my/python-mode-hook))
+
+;(load-theme 'zenburn t)
+(use-package zenburn-theme
+  :ensure t
+  :config (load-theme 'zenburn t))
+
+; If you like a tabbar
+;(use-package tabbar
+;  :ensure t
+;  :config
+;  (tabbar-mode 1))
+
+; (winner-mode 1)
+; (windmove-default-keybindings)

@@ -157,6 +157,48 @@ The contents of the init.el file:
   ;    (global-auto-complete-mode t)
   ;    ))
 #+END_SRC
+* Syntax checking
+  [[https://www.flycheck.org/en/latest/index.html][flycheck]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck
+    :ensure t
+    :init
+    (global-flycheck-mode))
+#+END_SRC
+* Python
+** install [[https://github.com/PyCQA/pylint][pylint]], virtualenv
+   #+BEGIN_SRC bash
+     sudo apt install python3-pip
+     pip3 install pylint
+     pip3 install virtualenv
+   #+END_SRC
+** Jedi - python auto-completion for Emacs
+   - install [[https://github.com/tkf/emacs-jedi][jedi]] package, for company user, install [[https://github.com/emacsorphanage/company-jedi][company-jedi]] instead.
+   - M-x jedi:install-server
+   - [[http://tkf.github.io/emacs-jedi/latest/][jedi settings]]
+   
+#+BEGIN_SRC emacs-lisp
+    (setq py-python-command "python3")
+    (setq python-shell-interpreter "python3")
+    (setq flycheck-python-pylint-executable "python3")
+
+    ;(use-package jedi
+    ;  :ensure t
+    ;  :init
+    ;  (add-hook 'python-mode-hook 'jedi:setup)
+    ;  (add-hook 'python-mode-hook 'jedi:ac-setup))
+
+    (use-package company-jedi
+      :ensure t
+      :config
+      (defun my/python-mode-hook ()
+	(add-to-list 'company-backends 'company-jedi))
+      (add-hook 'python-mode-hook 'jedi:setup)
+      (setq jedi:complete-on-dot t)
+      (add-hook 'python-mode-hook 'my/python-mode-hook))
+#+END_SRC
+
 * Theme
   install theme and use function load-theme
   - [[https://emacsthemes.com/][Emacs Themes]]
