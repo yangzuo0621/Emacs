@@ -122,6 +122,13 @@
   (add-hook 'python-mode-hook #'lsp)
   (setq lsp-enable-snippet nil))
 
+(use-package yasnippet
+  :ensure t
+  :init
+  (yas-global-mode 1)
+  :config
+  (setq yas-snippet-dirs '("~/.emacs.d/yasnippet-snippets/snippets")))
+
 ;(load-theme 'zenburn t)
 (use-package zenburn-theme
   :ensure t

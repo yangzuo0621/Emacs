@@ -214,6 +214,18 @@ The contents of the init.el file:
     (setq lsp-enable-snippet nil))
 #+END_SRC
 
+* Yasnippet
+  - setup [[https://github.com/joaotavora/yasnippet][yasnippet]] package
+  - clone the [[https://github.com/AndreaCrotti/yasnippet-snippets][yasnippet-snippets]] repo or M-x package-install RET yasnippet-snippets
+#+BEGIN_SRC emacs-lisp
+  (use-package yasnippet
+    :ensure t
+    :init
+    (yas-global-mode 1)
+    :config
+    (setq yas-snippet-dirs '("~/.emacs.d/yasnippet-snippets/snippets")))
+#+END_SRC
+
 * Theme
   install theme and use function load-theme
   - [[https://emacsthemes.com/][Emacs Themes]]
