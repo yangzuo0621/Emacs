@@ -270,10 +270,62 @@ The contents of the init.el file:
   F4 end macro record
   F4 do the macro
   
-** method tow
+** method two
   C-x + ( start macro record
   C-x + ) end macro record
   C-x + e do the macro
+
+* Misc packages
+** setup beacon packge
+   [[https://github.com/Malabarba/beacon][beacon]]
+
+   Highlight the cursor whenever the window scrolls
+
+** setup hungry-delete
+   [[https://github.com/nflath/hungry-delete][hungry-delete]]
+
+** setup aggressive-indent-mode
+   [[https://github.com/Malabarba/aggressive-indent-mode][aggressive-indent-mode]]
+
+** setup expand-region package
+   [[https://github.com/magnars/expand-region.el][expand-region]] 
+
+   If you expand too far, you can contract the region by pressing -
+   (minus key), or by prefixing the shortcut you defined with a
+   negative argument: C-- C-=
+
+   As C-- and C-= are used by windows terminal
+
+   Override the expand shotcut key to C-], and should use <ESC>-- C-]
+   to contract the region.
+
+** setup Delete Selection Mode
+   [[https://www.emacswiki.org/emacs/DeleteSelectionMode][delete-selection-mode]]
+
+#+BEGIN_SRC emacs-lisp
+; highlight the select line
+  (global-hl-line-mode t)
+
+  (use-package beacon
+    :ensure t
+    :config
+    (beacon-mode 1))
+
+  (use-package hungry-delete
+    :ensure t
+    :config
+    (global-hungry-delete-mode))
+
+  ;  (use-package aggressive-indent
+  ;    :ensure t
+  ;    :config
+  ;    (global-aggressive-indent-mode 1))
+
+  (use-package expand-region
+    :ensure t
+    :config
+    (global-set-key (kbd "C-]") 'er/expand-region))
+#+END_SRC
 
 * Thoughts on Emacs
 
@@ -283,3 +335,4 @@ and then later on can look and figure out how to do it.
 
 * Reference
   [[https://www.john2x.com/emacs.html][John's Emacs Config]]
+  [[https://lorefnon.tech/2018/07/14/getting-productive-with-selection-and-navigation-in-emacs/][Getting productive with selection and navigation in Emacs]]

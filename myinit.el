@@ -147,3 +147,26 @@
 
 ; (winner-mode 1)
 ; (windmove-default-keybindings)
+
+; highlight the select line
+  (global-hl-line-mode t)
+
+  (use-package beacon
+    :ensure t
+    :config
+    (beacon-mode 1))
+
+  (use-package hungry-delete
+    :ensure t
+    :config
+    (global-hungry-delete-mode))
+
+  ;  (use-package aggressive-indent
+  ;    :ensure t
+  ;    :config
+  ;    (global-aggressive-indent-mode 1))
+
+  (use-package expand-region
+    :ensure t
+    :config
+    (global-set-key (kbd "C-]") 'er/expand-region))
