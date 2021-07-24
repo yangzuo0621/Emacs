@@ -206,3 +206,11 @@ narrowed."
 ;; This line actually replaces Emacs' entire narrowing keymap, that's
 ;; how much I like this command. Only copy it if that's what you want.
 (define-key ctl-x-map "n" #'narrow-or-widen-dwim)
+
+(defun load-if-exists (f)
+  "load the elisp file only if it exists and is readable"
+  (if (file-readable-p f)
+      (load-file f)))
+
+;; load local elisp configs
+(load-if-exists "some-file.el")

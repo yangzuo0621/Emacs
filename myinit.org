@@ -376,7 +376,18 @@ The contents of the init.el file:
   ;; how much I like this command. Only copy it if that's what you want.
   (define-key ctl-x-map "n" #'narrow-or-widen-dwim)
 #+END_SRC
+* Conditional Loading of Emacs Config
+  [[https://irreal.org/blog/?p=5716][Conditional Loading of Emacs Config]]
 
+#+BEGIN_SRC emacs-lisp
+  (defun load-if-exists (f)
+    "load the elisp file only if it exists and is readable"
+    (if (file-readable-p f)
+	(load-file f)))
+
+  ;; load local elisp configs
+  (load-if-exists "some-file.el")
+#+END_SRC
 
 * Thoughts on Emacs
 
@@ -387,3 +398,4 @@ and then later on can look and figure out how to do it.
 * Reference
   [[https://www.john2x.com/emacs.html][John's Emacs Config]]
   [[https://lorefnon.tech/2018/07/14/getting-productive-with-selection-and-navigation-in-emacs/][Getting productive with selection and navigation in Emacs]]
+  [[http://irreal.org/blog/][Irreal]]
