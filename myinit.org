@@ -387,6 +387,26 @@ The contents of the init.el file:
   (use-package multiple-cursors
     :ensure t)
 #+END_SRC
+* Web mode
+  - setup [[https://github.com/fxbois/web-mode][web-mode]]
+  - Documentation [[https://web-mode.org/][web-mode.el]]
+  - Additional package [[https://github.com/smihica/emmet-mode][emmet-mode]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package web-mode
+    :ensure t
+    :config
+    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+    (setq web-mode-engines-alist
+	  '(("django"    . "\\.html\\'")))
+    (setq web-mode-ac-sources-alist
+	  '(("css" . (ac-source-css-property))
+	    ("vue" . (ac-source-words-in-buffer ac-source-abbrev))
+	    ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
+    (setq web-mode-enable-auto-closing t)
+    (setq web-mode-enable-auto-quoting t))
+#+END_SRC
+
 * Conditional Loading of Emacs Config
   [[https://irreal.org/blog/?p=5716][Conditional Loading of Emacs Config]]
 

@@ -217,6 +217,19 @@ narrowed."
 (use-package multiple-cursors
   :ensure t)
 
+(use-package web-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (setq web-mode-engines-alist
+	'(("django"    . "\\.html\\'")))
+  (setq web-mode-ac-sources-alist
+	'(("css" . (ac-source-css-property))
+	  ("vue" . (ac-source-words-in-buffer ac-source-abbrev))
+	  ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
+  (setq web-mode-enable-auto-closing t)
+  (setq web-mode-enable-auto-quoting t))
+
 (defun load-if-exists (f)
   "load the elisp file only if it exists and is readable"
   (if (file-readable-p f)
