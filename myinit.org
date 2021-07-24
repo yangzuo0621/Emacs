@@ -176,11 +176,11 @@ The contents of the init.el file:
      pip3 install pylint
      pip3 install virtualenv
    #+END_SRC
+** install [[https://github.com/jorgenschaefer/elpy][elpy]]
 ** Jedi - python auto-completion for Emacs
    - install [[https://github.com/tkf/emacs-jedi][jedi]] package, for company user, install [[https://github.com/emacsorphanage/company-jedi][company-jedi]] instead.
    - M-x jedi:install-server
    - [[http://tkf.github.io/emacs-jedi/latest/][jedi settings]]
-** install [[https://github.com/jorgenschaefer/elpy][elpy]]
    
 #+BEGIN_SRC emacs-lisp
   (setq py-python-command "python3")
@@ -237,7 +237,7 @@ The contents of the init.el file:
     :config (load-theme 'zenburn t))
 #+END_SRC
 
-* the rest
+* The rest
 #+BEGIN_SRC emacs-lisp
 
 ; If you like a tabbar
@@ -250,6 +250,12 @@ The contents of the init.el file:
 ; (windmove-default-keybindings)
 
 #+END_SRC
+
+* Thoughts on Emacs
+
+  The big thing isn't so much how to do something but just to know
+that something can be done and if realizing that something can be done
+and then later on can look and figure out how to do it.
 
 * Reference
   [[https://www.john2x.com/emacs.html][John's Emacs Config]]
