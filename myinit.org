@@ -523,6 +523,54 @@ The contents of the init.el file:
 ** NeoTree
    [[https://github.com/jaypei/emacs-neotree][emacs-neotree]]
 
+* Dired
+** Setup
+   #+BEGIN_SRC emacs-lisp
+     (setq dired-dwim-target t)
+
+     (use-package dired-narrow
+       :ensure t
+       :config
+       (bind-key "C-c C-n" #'dired-narrow)
+       (bind-key "C-c C-f" #'dired-narrow-fuzzy)
+       (bind-key "C-x C-N" #'dired-narrow-regexp)
+       )
+
+     (use-package dired-subtree :ensure t
+       :after dired
+       :config
+       (bind-key "<tab>" #'dired-subtree-toggle dired-mode-map)
+       (bind-key "<backtab>" #'dired-subtree-cycle dired-mode-map))
+   #+END_SRC
+** Basic dired  
+   - enter vs a
+   - f to visit, v ot view
+   - + to make a directory
+   - m to mark
+   - C copy, R rename/move, D delete
+** Regex
+   - mark with regex
+   - t to toggle marks
+   - k to hide
+** Fixing regex
+   [[https://github.com/joddie/pcre2el][pcre2el]] - convert between PCRE, Emacs and rx regexp syntax
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package pcre2el
+       :ensure t
+       :config
+       (pcre-mode))
+   #+END_SRC
+
+** Renaming files
+   C-x C-q -- Edit dired inline
+** using swiper
+   #+BEGIN_SRC emacs-lisp
+     (use-package wgrep
+       :ensure t)
+
+     ; (setq counsel-fzf-cmd "~/.fzf/bin/fzf -f %s")
+   #+END_SRC
 * Blog
 ** [[https://github.com/skeeto/elfeed][elfeed]]
 ** [[https://github.com/jekyll/jekyll][jekyll]] - ruby based
