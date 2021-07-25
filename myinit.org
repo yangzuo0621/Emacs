@@ -419,6 +419,11 @@ The contents of the init.el file:
 
 * Blog
 ** [[https://github.com/skeeto/elfeed][elfeed]]
+** [[https://github.com/jekyll/jekyll][jekyll]] - ruby based
+** [[https://github.com/getnikola/nikola][Nikola]]
+* Prodigy
+  Manage external services from within Emacs
+  [[https://github.com/rejeep/prodigy.el][Prodigy]]
 * Theme
   install theme and use function load-theme
   - [[https://emacsthemes.com/][Emacs Themes]]
