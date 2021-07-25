@@ -73,6 +73,11 @@ The contents of the init.el file:
       :config
       (add-hook 'org-mode-hook #'org-bullets-mode))
   #+END_SRC
+  - Org-mode Capture
+    [[https://orgmode.org/manual/Capture.html#Capture][Capture]]
+  - Org-mode Links
+    [[https://orgmode.org/guide/Hyperlinks.html][Hyperlinks]]
+
 * Buffers
   enable [[https://www.masteringemacs.org/article/introduction-to-ido-mode][ido mode]]
   #+BEGIN_SRC emacs-lisp
@@ -246,6 +251,18 @@ The contents of the init.el file:
     (global-undo-tree-mode))
 #+END_SRC
 
+* Tramp Mode - remote editing
+** [[https://www.emacswiki.org/emacs/TrampMode][Tramp Mode]]
+** Edit file
+   - C-x C-f, then input 
+   - /ssh:user@remote-host: (navigate the foler)
+   - /ssh:user@remote-host:~/file (open the file)
+   - /ssh:user@remote-host|sudo:user@remote-host:/home/file (sudo change file)
+** shell and eshell
+   Not very useful
+   - tramp to remote host
+   - M-x shell (use shell)
+   - M-x eshell (use eshell)
 * Theme
   install theme and use function load-theme
   - [[https://emacsthemes.com/][Emacs Themes]]
