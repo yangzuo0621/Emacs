@@ -251,6 +251,12 @@ The contents of the init.el file:
     (global-undo-tree-mode))
 #+END_SRC
 
+* Rectange - editing
+  [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Rectangles.html][Rectangles]]
+** some useful rectange features
+  - string-rectangle C-x r t
+  - rectangle-mark-mode C-x SPC
+  - open-rectangle C-x r o
 * Tramp Mode - remote editing
 ** [[https://www.emacswiki.org/emacs/TrampMode][Tramp Mode]]
 ** Edit file
