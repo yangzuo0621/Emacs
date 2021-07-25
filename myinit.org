@@ -28,7 +28,7 @@ The contents of the init.el file:
 (org-babel-load-file (expand-file-name "~/.emacs.d/myinit.org"))
 #+END_SRC
 
-* interface tweaks
+* [#B] interface tweaks
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-startup-message t)
   (setq make-backup-files nil)
@@ -258,11 +258,26 @@ The contents of the init.el file:
    - /ssh:user@remote-host: (navigate the foler)
    - /ssh:user@remote-host:~/file (open the file)
    - /ssh:user@remote-host|sudo:user@remote-host:/home/file (sudo change file)
+* shell and eshell
 ** shell and eshell
    Not very useful
-   - tramp to remote host
-   - M-x shell (use shell)
+** eshell
+    Can execute elisp function
    - M-x eshell (use eshell)
+** shell
+   - M-x shell (use shell)
+** remote shell
+   - Remote shell (tramp to remote host first)
+** better-shell
+   [[https://github.com/killdash9/better-shell][better-shell]]
+
+#+BEGIN_SRC emacs-lisp
+  ;(use-package better-shell
+  ;  :ensure t
+  ;  :bind (("C-'" . better-shell-shell)
+  ;	    ("C-c [" . better-shell-remote-open)))
+#+END_SRC
+
 * Theme
   install theme and use function load-theme
   - [[https://emacsthemes.com/][Emacs Themes]]

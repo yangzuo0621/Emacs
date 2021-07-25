@@ -141,6 +141,11 @@
   :init
   (global-undo-tree-mode))
 
+;(use-package better-shell
+;  :ensure t
+;  :bind (("C-'" . better-shell-shell)
+;	    ("C-c [" . better-shell-remote-open)))
+
 ;(load-theme 'zenburn t)
 (use-package zenburn-theme
   :ensure t
