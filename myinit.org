@@ -34,6 +34,7 @@ The contents of the init.el file:
   (setq make-backup-files nil)
   (global-display-line-numbers-mode)
   (tool-bar-mode -1)
+  (menu-bar-mode -1)
   (fset 'yes-or-no-p 'y-or-n-p)
   (global-set-key (kbd "<f5>") 'revert-buffer)
 
