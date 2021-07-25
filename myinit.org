@@ -28,7 +28,7 @@ The contents of the init.el file:
 (org-babel-load-file (expand-file-name "~/.emacs.d/myinit.org"))
 #+END_SRC
 
-* [#B] interface tweaks
+* interface tweaks
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-startup-message t)
   (setq make-backup-files nil)
@@ -227,6 +227,13 @@ The contents of the init.el file:
     (setq lsp-enable-snippet nil))
 #+END_SRC
 
+* C++
+** show the dependencies of cpp files (useful for writing Makefile)
+   g++ -MM *cpp
+** compile and locate error place
+   M-x compile
+   C-x ` (backtick)
+** [[https://github.com/leoliu/ggtags][ggtags]]
 * Yasnippet
   - setup [[https://github.com/joaotavora/yasnippet][yasnippet]] package
   - clone the [[https://github.com/AndreaCrotti/yasnippet-snippets][yasnippet-snippets]] repo or M-x package-install RET yasnippet-snippets
