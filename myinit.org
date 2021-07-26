@@ -282,8 +282,8 @@ The contents of the init.el file:
      (add-hook 'go-mode-hook
 	       (lambda ()
 		 (add-hook 'before-save-hook 'gofmt-before-save)
-		 (add-hook 'before-save-hook #'lsp-format-buffer t t)
-		 (add-hook 'before-save-hook #'lsp-organize-imports t t)
+;		 (add-hook 'before-save-hook #'lsp-format-buffer t t)
+;		 (add-hook 'before-save-hook #'lsp-organize-imports t t)
 		 (setq tab-width 4)
 		 (setq indent-tabs-mode 1)))
    #+END_SRC
