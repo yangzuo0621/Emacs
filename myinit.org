@@ -766,6 +766,7 @@ The contents of the init.el file:
 ** mu4e
   - [[https://www.macs.hw.ac.uk/~rs46/posts/2014-01-13-mu4e-email-client.html][Drowning in Email; mu4e to the Rescue.]]
   - [[https://www.djcbsoftware.nl/code/mu/mu4e/Installation.html][install mu]]
+  - [[https://gitlab.com/ambrevar/mu4e-conversation][mu4e-conversation]]
 * Conditional Loading of Emacs Config
   [[https://irreal.org/blog/?p=5716][Conditional Loading of Emacs Config]]
 
