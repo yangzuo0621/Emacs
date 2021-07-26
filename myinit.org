@@ -266,6 +266,8 @@ The contents of the init.el file:
      pip3 install pylint
      pip3 install virtualenv
    #+END_SRC
+** setup [[https://github.com/porterjamesj/virtualenvwrapper.el][virtualenvwrapper]]
+** install python virtual manager: workon
 ** install [[https://github.com/jorgenschaefer/elpy][elpy]]
 ** Jedi - python auto-completion for Emacs
    - install [[https://github.com/tkf/emacs-jedi][jedi]] package, for company user, install [[https://github.com/emacsorphanage/company-jedi][company-jedi]] instead.
