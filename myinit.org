@@ -152,6 +152,7 @@ The contents of the init.el file:
   - [[http://pragmaticemacs.com/emacs/counsel-yank-pop-with-a-tweak/][COUNSEL-YANK-POP WITH A TWEAK]]
 #+BEGIN_SRC emacs-lisp
   (use-package counsel
+    :ensure t
     :bind
     (("M-y" . counsel-yank-pop)
      :map ivy-minibuffer-map
@@ -523,6 +524,27 @@ The contents of the init.el file:
 
 ** NeoTree
    [[https://github.com/jaypei/emacs-neotree][emacs-neotree]]
+
+* Git
+** [[https://github.com/magit/magit/][magit]]
+** [[https://github.com/emacsorphanage/git-gutter][git-gutter]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :ensure t
+    :init
+    (progn
+      (bind-key "C-x g" 'magit-status)
+      ))
+
+  (setq magit-status-margin
+	'(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
+
+  (use-package git-gutter
+    :ensure t
+    :init
+    (global-git-gutter-mode +1))
+#+END_SRC
 
 * Dired
 ** Setup

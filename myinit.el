@@ -78,6 +78,7 @@
     ))
 
 (use-package counsel
+  :ensure t
   :bind
   (("M-y" . counsel-yank-pop)
    :map ivy-minibuffer-map
@@ -295,6 +296,21 @@
   :after (treemacs persp-mode) ;;or perspective vs. persp-mode
   :ensure t
   :config (treemacs-set-scope-type 'Perspectives))
+
+(use-package magit
+  :ensure t
+  :init
+  (progn
+    (bind-key "C-x g" 'magit-status)
+    ))
+
+(setq magit-status-margin
+      '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
+
+(use-package git-gutter
+  :ensure t
+  :init
+  (global-git-gutter-mode +1))
 
 (setq dired-dwim-target t)
 
