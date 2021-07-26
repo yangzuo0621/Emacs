@@ -206,6 +206,10 @@ The contents of the init.el file:
     :config
     (add-hook 'after-init-hook 'global-company-mode))
 
+  ;; Company mode
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 1)
+
   ;(use-package auto-complete
   ;  :ensure t
   ;  :init
@@ -257,6 +261,36 @@ The contents of the init.el file:
       (which-key-mode))
   #+END_SRC
 
+* Go
+** [[https://github.com/dominikh/go-mode.el][go-mode]]
+   #+BEGIN_SRC emacs-lisp
+     (use-package go-mode
+     :ensure t
+       :config
+       (autoload 'go-mode "go-mode" nil t)
+       (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode)))
+
+     (use-package company-go
+       :ensure t)
+
+     (add-hook 'go-mode-hook 'lsp-deferred)
+     (add-hook 'go-mode-hook (lambda ()
+			       (set (make-local-variable 'company-backends) '(company-go))
+			       (company-mode)))
+
+     (setq gofmt-command "goimports")
+     (add-hook 'go-mode-hook
+	       (lambda ()
+		 (add-hook 'before-save-hook 'gofmt-before-save)
+		 (add-hook 'before-save-hook #'lsp-format-buffer t t)
+		 (add-hook 'before-save-hook #'lsp-organize-imports t t)
+		 (setq tab-width 4)
+		 (setq indent-tabs-mode 1)))
+   #+END_SRC
+
+** [[https://github.com/golang/tools/tree/master/gopls][Go LSP Server (gopls)]]
+** Reference
+   - [[https://geeksocket.in/posts/emacs-lsp-go/][How to setup Emacs LSP Mode for Go]]
 * Python
   For Emacs 27, use LSP, and use elpy for Emacs 26 or lower
 ** install [[https://github.com/python-lsp/python-lsp-server][Python LSP Server]]

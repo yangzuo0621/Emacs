@@ -122,6 +122,10 @@
   :config
   (add-hook 'after-init-hook 'global-company-mode))
 
+;; Company mode
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 1)
+
 ;(use-package auto-complete
 ;  :ensure t
 ;  :init
@@ -162,6 +166,29 @@
 (use-package which-key
   :config
   (which-key-mode))
+
+(use-package go-mode
+:ensure t
+  :config
+  (autoload 'go-mode "go-mode" nil t)
+  (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode)))
+
+(use-package company-go
+  :ensure t)
+
+(add-hook 'go-mode-hook 'lsp-deferred)
+(add-hook 'go-mode-hook (lambda ()
+			  (set (make-local-variable 'company-backends) '(company-go))
+			  (company-mode)))
+
+(setq gofmt-command "goimports")
+(add-hook 'go-mode-hook
+	  (lambda ()
+	    (add-hook 'before-save-hook 'gofmt-before-save)
+	    (add-hook 'before-save-hook #'lsp-format-buffer t t)
+	    (add-hook 'before-save-hook #'lsp-organize-imports t t)
+	    (setq tab-width 4)
+	    (setq indent-tabs-mode 1)))
 
 (setq py-python-command "python3")
 (setq python-shell-interpreter "python3")
