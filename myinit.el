@@ -200,6 +200,9 @@
   :config
   (setq yas-snippet-dirs '("~/.emacs.d/yasnippet-snippets/snippets")))
 
+(use-package auto-yasnippet
+  :ensure t)
+
 (use-package undo-tree
   :ensure t
   :init

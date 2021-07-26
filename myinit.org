@@ -315,6 +315,7 @@ The contents of the init.el file:
 ** [[https://github.com/leoliu/ggtags][ggtags]]
 * Yasnippet
   - setup [[https://github.com/joaotavora/yasnippet][yasnippet]] package
+  - setup [[https://github.com/abo-abo/auto-yasnippet][auto-yasnippet]]
   - clone the [[https://github.com/AndreaCrotti/yasnippet-snippets][yasnippet-snippets]] repo or M-x package-install RET yasnippet-snippets
 #+BEGIN_SRC emacs-lisp
   (use-package yasnippet
@@ -323,6 +324,9 @@ The contents of the init.el file:
     (yas-global-mode 1)
     :config
     (setq yas-snippet-dirs '("~/.emacs.d/yasnippet-snippets/snippets")))
+
+  (use-package auto-yasnippet
+    :ensure t)
 #+END_SRC
 
 * Undo Tree
