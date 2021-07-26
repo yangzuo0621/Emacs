@@ -230,6 +230,20 @@
 (use-package auto-yasnippet
   :ensure t)
 
+(use-package yaml-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
+
+(use-package json-mode
+  :ensure t)
+
+(use-package json-reformat
+  :ensure t)
+
+(use-package json-snatcher
+  :ensure t)
+
 (use-package undo-tree
   :ensure t
   :init

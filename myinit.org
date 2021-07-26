@@ -363,6 +363,27 @@ The contents of the init.el file:
     :ensure t)
 #+END_SRC
 
+* Yaml
+  [[https://github.com/yoshiki/yaml-mode][yaml-mode]]
+  #+BEGIN_SRC emacs-lisp
+    (use-package yaml-mode
+      :ensure t
+      :config
+      (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
+  #+END_SRC
+* JSON
+  [[https://github.com/joshwnj/json-mode][json-mode]]
+  #+BEGIN_SRC emacs-lisp
+    (use-package json-mode
+      :ensure t)
+
+    (use-package json-reformat
+      :ensure t)
+
+    (use-package json-snatcher
+      :ensure t)
+  #+END_SRC
+   
 * Undo Tree
   [[https://elpa.gnu.org/packages/undo-tree.html][undo-tree]]
   - view the undo-tree C-x u
