@@ -336,7 +336,17 @@
 (use-package wgrep
   :ensure t)
 
+(use-package wgrep-ag
+  :ensure t)
+
+; (require 'wgrep-ag)
 ; (setq counsel-fzf-cmd "~/.fzf/bin/fzf -f %s")
+
+(use-package rg
+  :ensure t)
+
+(use-package ag
+  :ensure t)
 
 ;(load-theme 'zenburn t)
 (use-package zenburn-theme

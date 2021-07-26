@@ -588,10 +588,16 @@ The contents of the init.el file:
 ** Renaming files
    C-x C-q -- Edit dired inline
 ** using swiper
+** wgrep
+   [[https://github.com/mhayashi1120/Emacs-wgrep][wgrep]]
    #+BEGIN_SRC emacs-lisp
      (use-package wgrep
        :ensure t)
 
+     (use-package wgrep-ag
+       :ensure t)
+
+     ; (require 'wgrep-ag)
      ; (setq counsel-fzf-cmd "~/.fzf/bin/fzf -f %s")
    #+END_SRC
 * Blog
@@ -601,6 +607,32 @@ The contents of the init.el file:
 * Prodigy
   Manage external services from within Emacs
   [[https://github.com/rejeep/prodigy.el][Prodigy]]
+* Ripgrep (rg) and Silver Searcher (ag)
+  Ripgrep (rg) and Silver Searcher (ag) both perform text searches,
+  and both are created to be a better and faster grep. rg is faster
+  and is mainstream.
+** Ripgrep
+   [[https://github.com/BurntSushi/ripgrep][ripgrep (rg)]]
+   [[https://github.com/dajva/rg.el][rg.el]]
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package rg
+       :ensure t)
+   #+END_SRC
+
+** The Silver Searcher
+   [[https://github.com/ggreer/the_silver_searcher][the silver searcher (ag)]]
+   [[https://github.com/Wilfred/ag.el][ag.el]]
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package ag
+       :ensure t)
+   #+END_SRC
+
+** Comparation
+   - [[https://mariusschulz.com/blog/fast-searching-with-ripgrep][Fast Searching with ripgrep]]
+   - [[https://blog.burntsushi.net/ripgrep/][ripgrep is faster than {grep, ag, git grep, ucg, pt, sift}]]
+   - [[https://unix.stackexchange.com/questions/464726/how-is-ripgrep-different-from-silver-searcher-ag][how-is-ripgrep-different-from-silver-searcher-ag]]
 * Theme
   install theme and use function load-theme
   - [[https://emacsthemes.com/][Emacs Themes]]
