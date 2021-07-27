@@ -560,6 +560,14 @@ narrowed."
   (setq web-mode-enable-auto-closing t)
   (setq web-mode-enable-auto-quoting t))
 
+(use-package restclient
+  :ensure t)
+
+(use-package company-restclient
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-restclient))
+
 (defun load-if-exists (f)
   "load the elisp file only if it exists and is readable"
   (if (file-readable-p f)

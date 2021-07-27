@@ -897,6 +897,20 @@ The contents of the init.el file:
 ** [[https://github.com/vedang/pdf-tools][pdf-tools]]
 ** [[https://github.com/fuxialexander/org-pdftools][org-pdftools]]
 
+* RestClient
+** [[https://github.com/pashky/restclient.el][restclient]]
+** [[https://github.com/iquiw/company-restclient][restclient-company]]
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package restclient
+       :ensure t)
+
+     (use-package company-restclient
+       :ensure t
+       :config
+       (add-to-list 'company-backends 'company-restclient))
+   #+END_SRC 
+
 * Email
 ** mu4e
   - [[https://www.macs.hw.ac.uk/~rs46/posts/2014-01-13-mu4e-email-client.html][Drowning in Email; mu4e to the Rescue.]]
