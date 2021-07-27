@@ -643,6 +643,9 @@ The contents of the init.el file:
     (global-git-gutter-mode +1))
 #+END_SRC
 
+** [[https://github.com/magit/forge][forge]]
+   Work with Git forges, such as Github and Gitlab, from the comfort
+   of Magit and the rest of Emacs.
 * Dired
 ** Setup
    #+BEGIN_SRC emacs-lisp
