@@ -891,6 +891,12 @@ The contents of the init.el file:
     (setq web-mode-enable-auto-quoting t))
 #+END_SRC
 
+* PDF tool
+  Looks like need terminal support image/pdf. Leave for further
+  investigation.
+** [[https://github.com/vedang/pdf-tools][pdf-tools]]
+** [[https://github.com/fuxialexander/org-pdftools][org-pdftools]]
+
 * Email
 ** mu4e
   - [[https://www.macs.hw.ac.uk/~rs46/posts/2014-01-13-mu4e-email-client.html][Drowning in Email; mu4e to the Rescue.]]
