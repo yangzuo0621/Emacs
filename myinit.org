@@ -697,6 +697,9 @@ The contents of the init.el file:
      ; (require 'wgrep-ag)
      ; (setq counsel-fzf-cmd "~/.fzf/bin/fzf -f %s")
    #+END_SRC
+** [[https://github.com/Fuco1/dired-hacks][dired-hacks]]
+   - dired-narrow
+   - dired-subtree
 * Blog
 ** [[https://github.com/skeeto/elfeed][elfeed]]
 ** [[https://github.com/jekyll/jekyll][jekyll]] - ruby based
