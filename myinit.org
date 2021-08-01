@@ -80,6 +80,15 @@ The contents of the init.el file:
   - Org-mode Links
     [[https://orgmode.org/guide/Hyperlinks.html][Hyperlinks]]
 
+* Org babel
+  #+BEGIN_SRC emacs-lisp
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((shell . t)
+       (python . t)))
+
+    (setq org-confirm-babel-evaluate nil)
+  #+END_SRC
 * Buffers & iBuffer
 ** Buffer
    C-x C-b list-buffers, config ibuffer replace list-buffers

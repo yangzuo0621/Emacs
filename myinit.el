@@ -26,6 +26,13 @@
   :config
   (add-hook 'org-mode-hook #'org-bullets-mode))
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((shell . t)
+   (python . t)))
+
+(setq org-confirm-babel-evaluate nil)
+
 ;; ido mode
 (setq indo-enable-flex-matching t)
 (setq ido-everywhere t)
