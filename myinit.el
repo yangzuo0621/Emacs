@@ -1,5 +1,6 @@
 (setq inhibit-startup-message t)
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 (global-display-line-numbers-mode)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -28,7 +29,7 @@
 ;; ido mode
 (setq indo-enable-flex-matching t)
 (setq ido-everywhere t)
-(ido-mode 1)
+;; (ido-mode 1)
 
 ; (defalias 'list-buffers 'ibuffer)
 ; (defalias 'list-buffers 'ibuffer-other-window)
@@ -194,6 +195,13 @@
 (setq python-shell-interpreter "python3")
 (setq flycheck-python-pylint-executable "python3")
 
+(use-package virtualenvwrapper
+  :ensure t
+  :config
+  (venv-initialize-interactive-shells)
+  (venv-initialize-eshell))
+
+(venv-workon "p3")
 ;(use-package jedi
 ;  :ensure t
 ;  :init

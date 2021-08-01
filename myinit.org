@@ -32,6 +32,7 @@ The contents of the init.el file:
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-startup-message t)
   (setq make-backup-files nil)
+  (setq auto-save-default nil)
   (global-display-line-numbers-mode)
   (tool-bar-mode -1)
   (menu-bar-mode -1)
@@ -87,7 +88,7 @@ The contents of the init.el file:
     ;; ido mode
     (setq indo-enable-flex-matching t)
     (setq ido-everywhere t)
-    (ido-mode 1)
+    ;; (ido-mode 1)
   #+END_SRC
 
 ** iBuffer
@@ -298,9 +299,20 @@ The contents of the init.el file:
    #+BEGIN_SRC bash
      sudo apt install python3-pip
      pip3 install pylint
-     pip3 install virtualenv
+     pip3 install virtualenv virtualenvwrapper
    #+END_SRC
-** setup [[https://github.com/porterjamesj/virtualenvwrapper.el][virtualenvwrapper]]
+** COMMENT setup [[https://github.com/porterjamesj/virtualenvwrapper.el][virtualenvwrapper]]
+
+   #+BEGIN_SRC sh
+     # On Ubuntu, virtualenvwrapper.sh script's location is:
+     export WORKON_HOME=$HOME/.virtualenvs
+     source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+     # create python3 virtual env 
+     virtualenv -p python3 ~/.virtualenvs/p3
+     # workon p3
+   #+END_SRC
+   
 ** install python virtual manager: workon
 ** install [[https://github.com/jorgenschaefer/elpy][elpy]]
 ** Jedi - python auto-completion for Emacs
@@ -313,6 +325,13 @@ The contents of the init.el file:
   (setq python-shell-interpreter "python3")
   (setq flycheck-python-pylint-executable "python3")
 
+  (use-package virtualenvwrapper
+    :ensure t
+    :config
+    (venv-initialize-interactive-shells)
+    (venv-initialize-eshell))
+
+  (venv-workon "p3")
   ;(use-package jedi
   ;  :ensure t
   ;  :init
