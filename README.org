@@ -95,7 +95,7 @@ The contents of the init.el file:
   enable [[https://www.masteringemacs.org/article/introduction-to-ido-mode][ido mode]]
   #+BEGIN_SRC emacs-lisp
     ;; ido mode
-    (setq indo-enable-flex-matching t)
+    (setq ido-enable-flex-matching t)
     (setq ido-everywhere t)
     ;; (ido-mode 1)
   #+END_SRC
