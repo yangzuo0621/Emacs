@@ -23,6 +23,7 @@
 (require 'init-elpa)
 (require 'init-packages)
 (require 'init-ibuffer)
+(require 'init-wsl)
 
 (when (file-exists-p custom-file)
   (load custom-file))
